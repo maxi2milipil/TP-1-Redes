@@ -18,26 +18,28 @@ const { title } = Astro.props as Props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header class="">
+		<header class=""> <!--elementos especificos en el mismo espacio-->
 			<nav class="" id="nav" aria-label="Top">
 				<div class="logo">
 					<a href="/">
-						<span class="sr-only">Astro Starter</span>
+						<span class="sr-only">Astro Starter</span> <!--modifica el estilo de texto-->
 					</a>
 				</div>
 				<div class="menu">
 					<a href="/" class="">Home</a>
 					<a href="/about" class="">about</a>
-				</div>
-				<Hamburger />
-			</nav>
+				</div> <!--da los limites de la pagina-->
+				<Hamburger /> <!--menu animado-->
+			</nav> <!--insterta enlaces-->
 			<slot />
-		</header>
-	</body>
+		</header> <!--especifica navegacion-->
+	</body> <!--modifica el aspecto de la pagina-->
 </html>
+
+
 <style>
 	#nav {
-		display: flex;
-		justify-content: space-between;
+		display: flex; /*extension y relleno de un objeto */
+		justify-content: space-between;  /* aplica separacion y aliniamiento horizontal*/
 	}
 </style>
