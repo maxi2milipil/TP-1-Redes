@@ -27,13 +27,17 @@ const { title } = Astro.props as Props;
 						<!--modifica el estilo de texto-->
 					</a>
 				</div>
+
+				<!--da los limites de la pagina-->
+				<div id="hamburger">
+					<Hamburger />
+				</div>
+				<!--menu animado-->
 				<div id="menu">
 					<a href="/" class="">Home</a>
-					<a href="/about" class="">about</a>
+					<a href="/about" class="">About</a>
+					<a href="/contacto" class="">Contacto</a>
 				</div>
-				<!--da los limites de la pagina-->
-				<Hamburger />
-				<!--menu animado-->
 			</nav>
 			<!--insterta enlaces-->
 			<slot />
@@ -48,11 +52,40 @@ const { title } = Astro.props as Props;
 		display: flex; /*extension y relleno de un objeto */
 		justify-content: space-between; /* aplica separacion y aliniamiento horizontal*/
 		padding: 12px 24px;
+		gap: 16px;
+		flex-wrap: wrap; /* permite que fluya en varias filas*/
 	}
 	#menu {
 		display: none; /*sirve para ocultrar un valor(palabras de la pantalla) con non*/
-	
+		gap: 8px; /*sirve ampliar espacio entre items*/
+		width: 100%;  /*establece el ancho de un elemento*/
+		flex-direction: column;/*flex direction centra el elemento antes mencionado con un # */
 	}
 
-	
-	</style>
+	@media (min-width: 768px) {
+		#menu {
+			display: flex; /*sirve para ocultrar un valor(palabras de la pantalla) con non*/
+			flex-direction: row; /*centra los elementos y mas un row (fila) centra las mismas*/
+			width: auto; /* width auto establece ancho automaticamente de los elementos*/
+		}
+		#hamburger {
+			display: none;
+		}
+	}
+</style>
+
+<script is:inline>
+const burger = document.getElementById("hamburger");
+
+function clickBurger() {
+	const menu = document.getElementById("menu");
+	const style = window.getComputedStyle(menu);
+	if (style.display === "none") {
+		console.log("oculto");
+		menu.style.display = "flex";
+	} else {
+		menu.style.display = "none";
+	}
+}
+burger?.addEventListener("click", clickBurger); 
+</script>
