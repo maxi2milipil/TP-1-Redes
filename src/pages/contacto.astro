@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contacto">
+    <main class="flex justify-center">
+        <div class="max-w-sm flex justify-center flex-col">
+            <h2 class="text-center text-2xl">Contacto</h2>
+            <form
+                action="https://formsubmit.co/maximilipil5@gmail.com"
+                method="POST"
+                class="columna"
+                id="contact"
+            >
+                <div class="fila">
+                    <div class="columna">
+                        <label for="name">Nombre:</label>
+                        <input
+                            class="bg-gray-200"
+                            type="text"
+                            name="name"
+                            placeholder="escriba aqui su nombre"
+                        />
+                    </div>
+                    <div class="columna">
+                        <label for="apellido">Apellido:</label>
+                        <input
+                            class="bg-gray-200"
+                            type="text"
+                            name="apellido"
+                            placeholder="escriba aqui su apellido"
+                        />
+                    </div>
+                </div>
+                <div class="columna">
+                    <label for="email">Email:</label>
+                    <input
+                        class="bg-gray-200"
+                        type="email"
+                        name="email"
+                        placeholder="escriba aca su email"
+                    />
+                </div>
+
+                <div class="columna">
+                    <label for="mensaje">mensajes</label>
+                    <input
+                        class="bg-gray-200"
+                        id="mensaje"
+                        type="text"
+                        name="mensaje"
+                        placeholder="escriba aqui su mensaje aqui"
+                    />
+                </div>
+                <input type="submit" value="enviar" />
+            </form>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .columna {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    .fila {
+        display: flex;
+        gap: 12px;
+    }
+</style>
